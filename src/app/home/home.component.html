@@ -1,7 +1,5 @@
-<form>
-    <h4>Què vols fer?</h4>
-    <input type="checkbox" >Una pàgina web (500 €)<br>
-    <input type="checkbox" >Una consultoria SEO (300 €)<br>
-    <input type="checkbox" >Una campanya de Google Ads (200 €)<br>
+<h4>Què vols fer?</h4>
+<form *ngFor="let option of options">
+    <input type="checkbox" (change)="contract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br>
 </form><br>
-<p>Preu: </p>
+<p>Preu: {{ preuTotal }}</p>
