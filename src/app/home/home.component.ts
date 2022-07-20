@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   preuTotal!: Number;
-  preuCanvi!: Number;
-  index!: number;
-  arrayPreu: Number[] = [];
+  preuWeb: number = 0;
+  preuSeo: number = 0;
+  preuAds: number = 0;
 
   options:any[] = [
     {txt: "Una pàgina web (500 €)", selec: false, preu: 500},
@@ -26,23 +26,22 @@ export class HomeComponent implements OnInit {
   }
 
   contract(){
-    //this.arrayPreu = [];
-    for(let i = 0; i < this.options.length; i++){
-      if(this.options[i].selec == true){
-        this.preuTotal = parseInt(this.options[i].preu);
-      }
-      if(this.options[i].selec == false) {
-        this.preuCanvi = this.options[i].preu;
-        this.index = this.arrayPreu.indexOf(this.preuCanvi);
-        if(this.index != -1){
-          this.arrayPreu.splice(this.index, 1);
-        }
-      }
+    if(this.options[0].selec == true){
+      this.preuWeb = this.options[0].preu;
+    }else{
+      this.preuWeb = 0;
     }
-    this.arrayPreu.push(this.preuTotal);
-    console.log("Array de preus: ", this.arrayPreu);
-    console.log("Variable de preus: ", this.preuTotal);
-    console.log("Options: ", this.options);
+    if(this.options[1].selec == true){
+      this.preuSeo = this.options[1].preu;
+    }else{
+      this.preuSeo = 0;
+    }
+    if(this.options[2].selec == true){
+      this.preuAds = this.options[2].preu;
+    }else{
+      this.preuAds = 0;
+    }
+    this.preuTotal = this.preuWeb + this.preuSeo + this.preuAds;
   }
 
 }
