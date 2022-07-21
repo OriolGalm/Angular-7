@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class WebService {
 
-  public preuTotal!: Number;
+  public preuTotal!: number;
   private preuWeb: number = 0;
   private preuSeo: number = 0;
   private preuAds: number = 0;
-  private numPags: number = 0;
-  private numIdioms: number = 0;
-  private numsWebTotal: number = 0;
+  private numPags!: number;
+  private numIdioms!: number;
+  public numsWebTotal!: number;
 
   options:any[] = [
     {txt: "Una pàgina web (500 €)", selec: false, preu: 500},
@@ -19,8 +19,8 @@ export class WebService {
     {txt: "Una campanya de Google Ads (200 €)", selec: false, preu: 200}
   ];
   numOptions:any[] = [
-    {txt: "Número de páginas"},
-    {txt: "Número de idiomas"}
+    {txt: "Número de páginas", quant: this.numPags},
+    {txt: "Número de idiomas", quant: this.numIdioms}
   ];
 
   constructor() { }
@@ -44,10 +44,11 @@ export class WebService {
     this.preuTotal = this.preuWeb + this.preuSeo + this.preuAds;
   }
 
-  /* preuTotalWeb(){
-    if(this.numOptions[0] == true){
-
+  preuTotalWeb(){
+    this.numsWebTotal = (this.numPags + this.numIdioms) * 30;
+    if(isNaN(this.preuTotal)){
+      this.preuTotal += this.numsWebTotal;
     }
-  } */
+  }
 
 }

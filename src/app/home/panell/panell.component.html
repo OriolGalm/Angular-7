@@ -1,3 +1,5 @@
 <form *ngFor="let anOption of this.webSvc.numOptions">
-    {{ anOption.txt }} <input type="text" name="anOption.txt" [(ngModel)]="anOption.selec" (change)="showPrices()" ><br>
+    {{ anOption.txt }} <input type="text" name="anOption.txt" [(ngModel)]="anOption.quant" (keyup)="showPrices()" ><br><br>
+{{ anOption.quant }}
 </form>
+{{ this.webSvc.preuTotal }}
