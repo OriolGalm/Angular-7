@@ -1,4 +1,3 @@
-<form >
-    Número de páginas <input type="text" ><br><br>
-    Número de idiomas <input type="text" >
+<form *ngFor="let anOption of this.webSvc.numOptions">
+    {{ anOption.txt }} <input type="text" name="anOption.txt" [(ngModel)]="anOption.selec" (change)="showPrices()" ><br>
 </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { WebService } from 'src/app/services/web.service';
 
 @Component({
   selector: 'app-panell',
@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanellComponent implements OnInit {
 
-  constructor() { }
+  constructor(public readonly webSvc: WebService) { }
+
+  showPrices(){
+    this.webSvc.contract();
+  }
 
   ngOnInit(): void {
   }

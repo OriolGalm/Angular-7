@@ -1,6 +1,6 @@
 <h4>Què vols fer?</h4>
-<form *ngFor="let option of options; let i = index">
-    <input type="checkbox" (change)="contract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br>
+<form *ngFor="let option of this.webSvc.options; let i = index">
+    <input type="checkbox" (change)="showContract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br>
 <app-panell *ngIf="i == 0"></app-panell>
 </form><br>
-<p>Preu: <span *ngIf="preuTotal">{{ preuTotal }} €</span></p>
+<p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
