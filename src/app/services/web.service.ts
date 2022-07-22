@@ -7,14 +7,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class WebService {
 
   public preuTotal!: number;
-  public preuSubTotal: number = 0;
-  public preutotalDef: number = 0;
+  private preuSubTotal: number = 0;
+  private preutotalDef: number = 0;
   private preuWeb: number = 0;
   private preuSeo: number = 0;
   private preuAds: number = 0;
-  private numPags: any = 0;
-  private numIdioms: any = 0;
-  public numsWebTotal: number = 0;
+  public numPags: any = 1;
+  public numIdioms: any = 1;
+  private numsWebTotal: number = 0;
 
   constructor() { }
 
@@ -29,7 +29,7 @@ export class WebService {
     quantIdioms: new FormControl('')
   });
 
-  contract(){
+  contract(): void{
     if(this.options[0].selec == true){
       this.preuWeb = this.options[0].preu;
     }else{
@@ -47,18 +47,49 @@ export class WebService {
     }
     this.preuTotal = this.preuWeb + this.preuSeo + this.preuAds + this.numsWebTotal;
     this.preutotalDef = this.preuTotal - this.numsWebTotal;
-
   }
 
-  preuTotalWeb(){
+  preuTotalWeb(): void{
     this.preuSubTotal = this.preutotalDef;
-  
     this.numPags = this.numOptions.value.quantPags;
     this.numIdioms = this.numOptions.value.quantIdioms;
     this.numsWebTotal = (this.numPags * this.numIdioms * 30);
-
     this.preuSubTotal += this.numsWebTotal;
     this.preuTotal = this.preuSubTotal;
+  }
+
+  preuTotalUpDown(): void{
+    this.preuSubTotal = this.preutotalDef;
+    if(this.numPags == 1 && this.numIdioms == 1){
+      this.numsWebTotal = 0;
+      this.preuSubTotal += this.numsWebTotal;
+      this.preuTotal = this.preuSubTotal;
+    }else{
+      this.numsWebTotal = (this.numPags * this.numIdioms * 30);
+      this.preuSubTotal += this.numsWebTotal;
+      this.preuTotal = this.preuSubTotal;
+    }
+  }
+
+  upPageSvc(): void{
+    this.numPags++;
+    this.preuTotalUpDown();
+  }
+  upLengSvc(): void{
+    this.numIdioms++;
+    this.preuTotalUpDown();
+  }
+  downPageSvc(): void{
+    if(this.numPags >= 2){
+      this.numPags--;
+      this.preuTotalUpDown();
+    }
+  }
+  downLengSvc(): void{
+    if(this.numIdioms >= 2){
+      this.numIdioms--;
+      this.preuTotalUpDown();
+    }
   }
 
 }

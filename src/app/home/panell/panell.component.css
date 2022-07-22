@@ -7,3 +7,37 @@ form{
     padding-left: 1rem;
     margin-bottom: 1rem;
 }
+input{
+    width:16%;
+    height: 2.2rem;
+    margin: 4px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+button{
+    background: coral;
+    color: white;
+    font-size: 2rem;
+    width: 2.4rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+button:active{
+    background: orangered;
+    transform: scale(.98);
+    border-inline: 1px solid silver
+}
+label{
+    padding-top: -10px;
+    margin-right: 10px;
+}
+@media(max-width: 930px){
+    form{
+        max-width: 140px;
+    }
+    input{
+        width: 20%;
+    }
+}

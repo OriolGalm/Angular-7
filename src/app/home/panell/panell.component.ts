@@ -10,11 +10,24 @@ export class PanellComponent implements OnInit {
 
   constructor(public readonly webSvc: WebService) { }
 
-  showPrices(){
+  ngOnInit(): void {
+  }
+
+  showPrices(): void{
     this.webSvc.preuTotalWeb();
   }
 
-  ngOnInit(): void {
+  upPage(): void{
+    this.webSvc.upPageSvc();
+  }
+  downPage(): void{
+    this.webSvc.downPageSvc();
+  }
+  upLeng(): void{
+    this.webSvc.upLengSvc();
+  }
+  downLeng(): void{
+    this.webSvc.downLengSvc();
   }
 
 }
