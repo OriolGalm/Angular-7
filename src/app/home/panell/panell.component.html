@@ -1,5 +1,6 @@
-<form *ngFor="let anOption of this.webSvc.numOptions">
-    {{ anOption.txt }} <input type="text" name="anOption.txt" [(ngModel)]="anOption.quant" (keyup)="showPrices()" ><br><br>
-{{ anOption.quant }}
+<form [formGroup]="this.webSvc.numOptions" (keyup)="showPrices()" >
+    
+    Número de páginas <input type="text" formControlName="quantPags"><br><br>
+    Número de idiomas <input type="text" formControlName="quantIdioms" ><br>
+    
 </form>
-{{ this.webSvc.preuTotal }}
