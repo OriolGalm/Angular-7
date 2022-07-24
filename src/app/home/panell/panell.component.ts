@@ -13,8 +13,11 @@ export class PanellComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showPrices(): void{
-    this.webSvc.preuTotalWeb();
+  showPricesPag(): void{
+    this.webSvc.preuTotalPag();
+  }
+  showPricesLeng(): void{
+    this.webSvc.preuTotalLeng();
   }
 
   upPage(): void{

@@ -1,10 +1,10 @@
-<form [formGroup]="this.webSvc.numOptions" (keyup)="showPrices()" >
+<form [formGroup]="this.webSvc.numOptions">
     <label>Número de páginas</label>  
     <button (click)="upPage()">+</button>
-    <input type="text" formControlName="quantPags" value="{{ this.webSvc.numPags }}" >
+    <input type="text" formControlName="quantPags" value="{{ this.webSvc.numPags }}" (keyup)="showPricesPag()">
     <button (click)="downPage()">-</button><br><br>
     <label>Número de idiomas</label> 
     <button (click)="upLeng()">+</button>
-    <input type="text" formControlName="quantIdioms" value="{{ this.webSvc.numIdioms }}" >
+    <input type="text" formControlName="quantIdioms" value="{{ this.webSvc.numIdioms }}" (keyup)="showPricesLeng()">
     <button (click)="downLeng()">-</button><br>
 </form>

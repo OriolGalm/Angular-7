@@ -4,3 +4,18 @@
 <app-panell *ngIf="option.selec && i == 0"></app-panell>
 </form>
 <p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
+<h5 (click)="goWelcome()">Pàgina d'informació</h5>
+
+<div id="welcome" *ngIf="welcome == true">
+    <h2>Faci un pressupost per una web</h2>
+    <div>
+        <p>Si desitja fer una pàgina web, aqui podrà calcular ràpidament el que li pot costar. 
+            Online, ràpidament i sense compromisos.</p>
+        <p>Podrà calcular:</p>
+        <p>- La quantitat de pàgines que tindrà el seu projecte</p>
+        <p>- Els idiomes</p>
+        <p>- Li oferim una consultoria SEO</p>
+        <p>- Una campanya de Google Ads</p>
+        <input type="button" value="Entrar" (click)="goWelcome()">
+    </div>
+</div>

@@ -1,0 +1,29 @@
+#welcome{
+    position: fixed;
+    top:0px;
+    left:0px;
+    background: white;
+    width: 100%;
+    height: 100vh;
+}
+#welcome>h2{
+    text-align: center;
+}
+#welcome>div{
+    width:80%;
+    margin: 60px auto
+}
+#welcome>div>input{
+    width: 100px;
+    margin: 40px 45%;
+    cursor: pointer;
+}
+h5{
+    position: absolute;
+    top:0px;
+    left: 84%;
+    cursor: pointer;
+}
+h5:hover{
+    color: mediumblue
+}

@@ -8,6 +8,8 @@ import { WebService } from '../services/web.service';
 })
 export class HomeComponent implements OnInit {
 
+  public welcome: boolean = true;
+
   constructor(public readonly webSvc: WebService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,15 @@ export class HomeComponent implements OnInit {
 
   showContract(){
     this.webSvc.contract();
+  }
+
+  goWelcome(){
+    if(this.welcome == true){
+      this.welcome = false;
+    }else{
+      this.welcome = true;
+    }
+    
   }
 
 }

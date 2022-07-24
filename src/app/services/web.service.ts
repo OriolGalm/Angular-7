@@ -12,7 +12,7 @@ export class WebService {
   private preuWeb: number = 0;
   private preuSeo: number = 0;
   private preuAds: number = 0;
-  public numPags: any = 1;
+  public numPags: any =  1;
   public numIdioms: any = 1;
   private numsWebTotal: number = 0;
 
@@ -51,24 +51,25 @@ export class WebService {
 
   preuTotalWeb(): void{
     this.preuSubTotal = this.preutotalDef;
-    this.numPags = this.numOptions.value.quantPags;
-    this.numIdioms = this.numOptions.value.quantIdioms;
     this.numsWebTotal = (this.numPags * this.numIdioms * 30);
     this.preuSubTotal += this.numsWebTotal;
     this.preuTotal = this.preuSubTotal;
   }
 
+  preuTotalPag(): void{
+    this.numPags = this.numOptions.value.quantPags;
+    this.preuTotalWeb();
+  }
+  preuTotalLeng(): void{
+    this.numIdioms = this.numOptions.value.quantIdioms;
+    this.preuTotalWeb();
+  }
+
   preuTotalUpDown(): void{
     this.preuSubTotal = this.preutotalDef;
-    if(this.numPags == 1 && this.numIdioms == 1){
-      this.numsWebTotal = 0;
-      this.preuSubTotal += this.numsWebTotal;
-      this.preuTotal = this.preuSubTotal;
-    }else{
       this.numsWebTotal = (this.numPags * this.numIdioms * 30);
       this.preuSubTotal += this.numsWebTotal;
       this.preuTotal = this.preuSubTotal;
-    }
   }
 
   upPageSvc(): void{
