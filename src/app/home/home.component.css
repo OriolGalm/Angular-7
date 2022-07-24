@@ -20,9 +20,10 @@
 }
 h5{
     position: absolute;
-    top:0px;
-    left: 84%;
+    top:10px;
+    left: 82%;
     cursor: pointer;
+    font-size: .8rem;
 }
 h5:hover{
     color: mediumblue

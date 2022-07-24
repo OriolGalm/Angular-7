@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebService } from 'src/app/services/web.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-panell',
@@ -8,7 +9,7 @@ import { WebService } from 'src/app/services/web.service';
 })
 export class PanellComponent implements OnInit {
 
-  constructor(public readonly webSvc: WebService) { }
+  constructor(public readonly webSvc: WebService, public modal: NgbModal) { }
 
   ngOnInit(): void {
   }

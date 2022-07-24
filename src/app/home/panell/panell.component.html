@@ -2,9 +2,24 @@
     <label>Número de páginas</label>  
     <button (click)="upPage()">+</button>
     <input type="text" formControlName="quantPags" value="{{ this.webSvc.numPags }}" (keyup)="showPricesPag()">
-    <button (click)="downPage()">-</button><br><br>
+    <button (click)="downPage()">-</button>
+    <img src="assets/circle-info-solid.svg" (click)="modal.open(content)"><br><br>
     <label>Número de idiomas</label> 
     <button (click)="upLeng()">+</button>
     <input type="text" formControlName="quantIdioms" value="{{ this.webSvc.numIdioms }}" (keyup)="showPricesLeng()">
-    <button (click)="downLeng()">-</button><br>
+    <button (click)="downLeng()">-</button>
+    <img src="assets/circle-info-solid.svg" (click)="modal.open(content)">
 </form>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+        Contingut del modal
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+</ng-template>

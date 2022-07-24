@@ -1,10 +1,12 @@
-<h4>Què vols fer?</h4>
-<form *ngFor="let option of this.webSvc.options; let i = index">
-    <input type="checkbox" (change)="showContract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br><br>
-<app-panell *ngIf="option.selec && i == 0"></app-panell>
-</form>
-<p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
-<h5 (click)="goWelcome()">Pàgina d'informació</h5>
+<div class="container mt-4">
+    <h4>Què vols fer?</h4>
+    <form *ngFor="let option of this.webSvc.options; let i = index">
+        <input type="checkbox" (change)="showContract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br><br>
+    <app-panell *ngIf="option.selec && i == 0"></app-panell>
+    </form>
+    <p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
+    <h5 (click)="goWelcome()">Pàgina d'informació</h5>
+</div>
 
 <div id="welcome" *ngIf="welcome == true">
     <h2>Faci un pressupost per una web</h2>
