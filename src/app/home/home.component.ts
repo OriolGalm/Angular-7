@@ -25,7 +25,10 @@ export class HomeComponent implements OnInit {
     }else{
       this.welcome = true;
     }
-    
+  }
+
+  toPressupost(valor:any){
+    this.webSvc.finalPressupost(valor)
   }
 
 }

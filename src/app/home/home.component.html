@@ -1,11 +1,36 @@
 <div class="container mt-4">
-    <h4>Què vols fer?</h4>
-    <form *ngFor="let option of this.webSvc.options; let i = index">
-        <input type="checkbox" (change)="showContract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br><br>
-    <app-panell *ngIf="option.selec && i == 0"></app-panell>
-    </form>
-    <p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
-    <h5 (click)="goWelcome()">Pàgina d'informació</h5>
+    <div class="row col-6 col-md-12">
+        <div class="col-md-6">
+            <div class="row">
+                <h4 class="col-5">Què vols fer?</h4>
+                <h5 class="col-5" (click)="goWelcome()">*Pàgina d'informació</h5>
+            </div>
+            <form *ngFor="let option of this.webSvc.options; let i = index">
+                <input type="checkbox" (change)="showContract()" name="option.txt" [(ngModel)]="option.selec" >{{ option.txt }}<br><br>
+            <app-panell *ngIf="option.selec && i == 0"></app-panell>
+            </form>
+            <p>Preu: <span *ngIf="this.webSvc.preuTotal">{{ this.webSvc.preuTotal }} €</span></p>
+            
+        </div>
+
+        <div class="col">
+            <form [formGroup]="this.webSvc.nouPressupost">
+                <div class="row">
+                    <div class="col">
+                        <label>Nom del pressupost:</label>
+                        <input type="text" formControlName="nomPressupost">
+                    </div>
+                    <div class="col">
+                        <label>Client:</label><br>   
+                        <input type="text" formControlName="client">
+                    </div>
+                </div><br>
+                <input class="btn btn-outline-primary" type="button" value="Pressupost" (click)="toPressupost(this.webSvc.nouPressupost)">
+            </form>
+            <app-pressupost></app-pressupost>
+            <p>{{ webSvc.arrayPressupost | json }}</p>
+        </div>
+    </div>
 </div>
 
 <div id="welcome" *ngIf="welcome == true">

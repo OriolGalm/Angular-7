@@ -9,6 +9,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PanellComponent implements OnInit {
 
+  public infoWeb!: string;
+
   constructor(public readonly webSvc: WebService, public modal: NgbModal) { }
 
   ngOnInit(): void {
@@ -32,6 +34,15 @@ export class PanellComponent implements OnInit {
   }
   downLeng(): void{
     this.webSvc.downLengSvc();
+  }
+
+  openXLPag(content: any){
+    this.modal.open(content, {size: 'xl', centered: true});
+    this.infoWeb = 'páginas';
+  }
+  openXLLeng(content:any){
+    this.modal.open(content, {size: 'xl', centered: true});
+    this.infoWeb = 'idiomas';
   }
 
 }

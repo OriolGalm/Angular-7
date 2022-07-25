@@ -19,11 +19,8 @@
     cursor: pointer;
 }
 h5{
-    position: absolute;
-    top:10px;
-    left: 82%;
     cursor: pointer;
-    font-size: .8rem;
+    font-size: .9rem;
 }
 h5:hover{
     color: mediumblue

@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PanellComponent } from './home/panell/panell.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PressupostComponent } from './pressupost/pressupost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PanellComponent
+    PanellComponent,
+    PressupostComponent
   ],
   imports: [
     BrowserModule,

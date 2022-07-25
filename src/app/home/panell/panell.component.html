@@ -3,23 +3,16 @@
     <button (click)="upPage()">+</button>
     <input type="text" formControlName="quantPags" value="{{ this.webSvc.numPags }}" (keyup)="showPricesPag()">
     <button (click)="downPage()">-</button>
-    <img src="assets/circle-info-solid.svg" (click)="modal.open(content)"><br><br>
+    <img src="assets/circle-info-solid.svg" (click)="openXLPag(content)"><br><br>
     <label>Número de idiomas</label> 
     <button (click)="upLeng()">+</button>
     <input type="text" formControlName="quantIdioms" value="{{ this.webSvc.numIdioms }}" (keyup)="showPricesLeng()">
     <button (click)="downLeng()">-</button>
-    <img src="assets/circle-info-solid.svg" (click)="modal.open(content)">
+    <img src="assets/circle-info-solid.svg" (click)="openXLLeng(content)">
 </form>
 
 <ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
-    </div>
-    <div class="modal-body">
-        Contingut del modal
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    <div class="modal-body" [ngStyle]="{'padding': '35px', 'border': '2px solid black', 'font-size': '1.2rem' }">
+        En este componente debe indicar el número de {{ infoWeb }} que tendrá su sitio web.<br>
     </div>
 </ng-template>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class WebService {
   public numPags: any =  1;
   public numIdioms: any = 1;
   private numsWebTotal: number = 0;
+  public nomPr!: string;
+  public clientPr!: string;
+  public arrayPressupost!: any[];
 
   constructor() { }
 
@@ -23,6 +26,11 @@ export class WebService {
     {txt: "Una consultoria SEO (300 €)", selec: false, preu: 300},
     {txt: "Una campanya de Google Ads (200 €)", selec: false, preu: 200}
   ];
+
+  nouPressupost = new FormGroup ({
+    nomPressupost: new FormControl ('', Validators.required),
+    client: new FormControl ('', Validators.required)
+  });
 
   numOptions = new FormGroup ({
     quantPags: new FormControl(''),
@@ -91,6 +99,21 @@ export class WebService {
       this.numIdioms--;
       this.preuTotalUpDown();
     }
+  }
+
+  finalPressupost(valor:any){
+    const pressObj = {
+      nomPressupost: valor.value.nomPressupost,
+      client: valor.value.client,
+      web: this.options[0].selec == true ? this.options[0].preu : '0',
+      seo: this.options[1].selec == true ? this.options[1].preu : '0',
+      ads: this.options[2].selec == true ? this.options[2].preu : '0',
+      pags: this.numPags,
+      leng: this.numIdioms,
+      total: this.preuTotal
+    }
+    //this.arrayPressupost.push(pressObj);
+    console.log("L'objecte: ", pressObj)
   }
 
 }
