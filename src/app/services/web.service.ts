@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class WebService {
 
-  public preuTotal!: number;
+  public preuTotal: number = 0;
   private preuSubTotal: number = 0;
   private preutotalDef: number = 0;
   private preuWeb: number = 0;
@@ -17,7 +17,8 @@ export class WebService {
   private numsWebTotal: number = 0;
   public nomPr!: string;
   public clientPr!: string;
-  public arrayPressupost!: any[];
+  public arrayPressupost: any[] = [];
+  private index: number = 0;
 
   constructor() { }
 
@@ -102,7 +103,9 @@ export class WebService {
   }
 
   finalPressupost(valor:any){
+    this.index++;
     const pressObj = {
+      index: this.index,
       nomPressupost: valor.value.nomPressupost,
       client: valor.value.client,
       web: this.options[0].selec == true ? this.options[0].preu : '0',
@@ -110,10 +113,33 @@ export class WebService {
       ads: this.options[2].selec == true ? this.options[2].preu : '0',
       pags: this.numPags,
       leng: this.numIdioms,
-      total: this.preuTotal
+      total: this.preuTotal,
+      date: new Date().toLocaleString()
     }
-    //this.arrayPressupost.push(pressObj);
-    console.log("L'objecte: ", pressObj)
+    this.arrayPressupost.push(pressObj);
+    console.log("L'objecte: ", this.arrayPressupost);
+  }
+
+  orderAl(){
+    this.arrayPressupost.sort((a, b) => {
+      var textA = a.nomPressupost.toUpperCase();
+      var textB = b.nomPressupost.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  }
+  orderDate(){
+    this.arrayPressupost.sort((a, b) => {
+      var dateA = a.date;
+      var dateB = b.date;
+      return (dateA < dateB) ? -1 : (dateA > dateB) ? 1 : 0;
+    });
+  }
+  orderIndex(){
+    this.arrayPressupost.sort((a, b) => {
+      var indexA = a.index;
+      var indexB = b.index;
+      return (indexA < indexB) ? -1 : (indexA > indexB) ? 1 : 0;
+    });
   }
 
 }

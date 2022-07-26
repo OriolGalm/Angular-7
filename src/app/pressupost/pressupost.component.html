@@ -1,1 +1,34 @@
-<p>pressupost works!</p>
+<div class="mt-4" *ngIf="this.webSvc.arrayPressupost[0]">
+    <input type="button" class="btn btn-outline-secondary" matinput value="Ordenar alfab" (click)="orderAlpha()">
+    <input type="button" class="btn btn-outline-secondary mx-4" value="Ordenar data" (click)="orderD()">
+    <input type="button" class="btn btn-outline-secondary" value="Reiniciar" (click)="orderI()" >
+</div>
+
+<table class="table mt-4" *ngIf="this.webSvc.arrayPressupost[0]">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Client</th>
+        <th scope="col">Web</th>
+        <th scope="col">Pages</th>
+        <th scope="col">Lenguages</th>
+        <th scope="col">SEO</th>
+        <th scope="col">G Ads</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let press of this.webSvc.arrayPressupost">
+      <tr>
+        <th scope="row">{{ press.index }}</th>
+        <td>{{ press.nomPressupost }}</td>
+        <td>{{ press.client }}</td>
+        <td>{{ press.web }}</td>
+        <td>{{ press.pags }}</td>
+        <td>{{ press.leng }}</td>
+        <td>{{ press.seo }}</td>
+        <td>{{ press.ads }}</td>
+        <td>{{ press.total }}<span>€</span></td>
+      </tr>
+    </tbody>
+  </table>

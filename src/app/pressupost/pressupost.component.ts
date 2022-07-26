@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebService } from '../services/web.service';
 
 @Component({
   selector: 'app-pressupost',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PressupostComponent implements OnInit {
 
-  constructor() { }
+  constructor(public readonly webSvc: WebService) { }
 
   ngOnInit(): void {
+  }
+
+  orderAlpha(){
+    this.webSvc.orderAl();
+  }
+
+  orderD(){
+    this.webSvc.orderDate();
+  }
+  orderI(){
+    this.webSvc.orderIndex();
   }
 
 }
