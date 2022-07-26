@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { PanellComponent } from './home/panell/panell.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PressupostComponent } from './pressupost/pressupost.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PanellComponent,
-    PressupostComponent
+    PressupostComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

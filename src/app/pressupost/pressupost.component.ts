@@ -8,6 +8,8 @@ import { WebService } from '../services/web.service';
 })
 export class PressupostComponent implements OnInit {
 
+  public filterClients: string = '';
+
   constructor(public readonly webSvc: WebService) { }
 
   ngOnInit(): void {

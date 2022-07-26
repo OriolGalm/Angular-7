@@ -1,4 +1,5 @@
 <div class="mt-4" *ngIf="this.webSvc.arrayPressupost[0]">
+    <input type="text" class="form-control" name="filterClients" [(ngModel)]="filterClients"><br>
     <input type="button" class="btn btn-outline-secondary" matinput value="Ordenar alfab" (click)="orderAlpha()">
     <input type="button" class="btn btn-outline-secondary mx-4" value="Ordenar data" (click)="orderD()">
     <input type="button" class="btn btn-outline-secondary" value="Reiniciar" (click)="orderI()" >
@@ -18,7 +19,7 @@
         <th scope="col">Total</th>
       </tr>
     </thead>
-    <tbody *ngFor="let press of this.webSvc.arrayPressupost">
+    <tbody *ngFor="let press of this.webSvc.arrayPressupost | filter:filterClients">
       <tr>
         <th scope="row">{{ press.index }}</th>
         <td>{{ press.nomPressupost }}</td>
