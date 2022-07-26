@@ -39,7 +39,7 @@ img{
     margin: 0px 0px 12px 6px;
     cursor: pointer;
 }
-@media(max-width: 930px){
+/* @media(max-width: 930px){
     form{
         max-width: 140px;
     }
@@ -49,4 +49,4 @@ img{
     label{
         font-size: .7rem;
     }
-}
+} */

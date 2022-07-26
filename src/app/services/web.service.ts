@@ -18,7 +18,7 @@ export class WebService {
   public nomPr!: string;
   public clientPr!: string;
   public arrayPressupost: any[] = [];
-  private index: number = 0;
+  public index: number = 0;
 
   constructor() { }
 

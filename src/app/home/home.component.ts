@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WebService } from '../services/web.service';
 
 @Component({
@@ -10,9 +11,14 @@ export class HomeComponent implements OnInit {
 
   public welcome: boolean = true;
 
-  constructor(public readonly webSvc: WebService) { }
+  constructor(public readonly webSvc: WebService, private readonly router: Router) { }
 
   ngOnInit(): void {
+    this.router.navigate([''], {queryParams: {
+      index: '',
+      nomPressupost: '',
+      client: ''
+    }})
   }
 
   showContract(){
@@ -28,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   toPressupost(valor:any){
-    this.webSvc.finalPressupost(valor)
+    this.webSvc.finalPressupost(valor);
   }
 
 }
