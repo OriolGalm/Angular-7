@@ -20,6 +20,7 @@ export class WebService {
   public clientPr!: string;
   public arrayPressupost: any[] = [];
   public index: number = 0;
+  private numberRegEx: any = /\-?\d*\.?\d{1,2}/;
 
   constructor(private readonly router: Router) { }
 
@@ -35,8 +36,8 @@ export class WebService {
   });
 
   numOptions = new FormGroup ({
-    quantPags: new FormControl(''),
-    quantIdioms: new FormControl('')
+    quantPags: new FormControl('1', Validators.pattern(this.numberRegEx)),
+    quantIdioms: new FormControl('1', Validators.pattern(this.numberRegEx))
   });
 
   contract(): void{

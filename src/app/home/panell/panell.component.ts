@@ -14,6 +14,7 @@ export class PanellComponent implements OnInit {
   constructor(public readonly webSvc: WebService, public modal: NgbModal) { }
 
   ngOnInit(): void {
+    this.webSvc.preuTotalWeb();
   }
 
   showPricesPag(): void{
