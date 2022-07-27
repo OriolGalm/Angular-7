@@ -14,11 +14,6 @@ export class HomeComponent implements OnInit {
   constructor(public readonly webSvc: WebService, private readonly router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate([''], {queryParams: {
-      index: '',
-      nomPressupost: '',
-      client: ''
-    }})
   }
 
   showContract(){

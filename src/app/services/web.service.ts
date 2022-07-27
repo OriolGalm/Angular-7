@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class WebService {
   public arrayPressupost: any[] = [];
   public index: number = 0;
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   options:any[] = [
     {txt: "Una pàgina web (500 €)", selec: false, preu: 500},
@@ -104,6 +105,19 @@ export class WebService {
 
   finalPressupost(valor:any){
     this.index++;
+
+    this.router.navigate([''], {queryParams: {
+      index: this.index,
+      nomPressupost: valor.value.nomPressupost,
+      client: valor.value.client,
+      web: this.options[0].selec,
+      seo: this.options[1].selec,
+      ads: this.options[2].selec,
+      pags: this.numPags,
+      leng: this.numIdioms,
+      total: this.preuTotal
+    }})
+
     const pressObj = {
       index: this.index,
       nomPressupost: valor.value.nomPressupost,
@@ -117,7 +131,6 @@ export class WebService {
       date: new Date().toLocaleString()
     }
     this.arrayPressupost.push(pressObj);
-    console.log("L'objecte: ", this.arrayPressupost);
   }
 
   orderAl(){
@@ -141,9 +154,5 @@ export class WebService {
       return (indexA < indexB) ? -1 : (indexA > indexB) ? 1 : 0;
     });
   }
-
-  /* cercador(){
-
-  } */
 
 }
