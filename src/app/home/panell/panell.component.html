@@ -1,7 +1,16 @@
 <form [formGroup]="this.webSvc.numOptions">
     <label>Número de páginas</label>  
     <button (click)="upPage()">+</button>
-    <input type="text" formControlName="quantPags" value="{{ this.webSvc.numPags }}" (keyup)="showPricesPag()">
+    <input type="text" name="quantPags" formControlName="quantPags" value="{{ this.webSvc.numPags }}" (keyup)="showPricesPag()">
+
+    <!-- <div *ngIf="this.webSvc.numOptions.get('quantPags')?.touched && this.webSvc.numOptions.get('quantPags')?.errors?.['numberRegEx']">
+        Només es poden introduir números
+    </div> -->
+
+    <!-- <div *ngIf="this.webSvc.numOptions.get('quantPags')?.touched && this.webSvc.numOptions.get('quantPags')?.errors?.['minlength']">
+        Només es poden introduir números
+    </div> -->
+    
     <button (click)="downPage()">-</button>
     <img src="assets/circle-info-solid.svg" (click)="openXLPag(content)"><br><br>
     <label>Número de idiomas</label> 

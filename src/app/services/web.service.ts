@@ -20,7 +20,7 @@ export class WebService {
   public clientPr!: string;
   public arrayPressupost: any[] = [];
   public index: number = 0;
-  private numberRegEx: any = /\-?\d*\.?\d{1,2}/;
+  public numberRegEx: any = /\-?\d*\.?\d{1,2}/;
 
   constructor(private readonly router: Router) { }
 
@@ -36,7 +36,7 @@ export class WebService {
   });
 
   numOptions = new FormGroup ({
-    quantPags: new FormControl('1', Validators.pattern(this.numberRegEx)),
+    quantPags: new FormControl('1', [Validators.minLength(2), Validators.pattern(this.numberRegEx)]),
     quantIdioms: new FormControl('1', Validators.pattern(this.numberRegEx))
   });
 
@@ -58,6 +58,7 @@ export class WebService {
     }
     this.preuTotal = this.preuWeb + this.preuSeo + this.preuAds + this.numsWebTotal;
     this.preutotalDef = this.preuTotal - this.numsWebTotal;
+    this.preuTotalWeb();
   }
 
   preuTotalWeb(): void{
